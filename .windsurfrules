@@ -1,0 +1,284 @@
+# Windsurf Rules for NASA Space Apps "Meteor Madness" Project
+# Same-User Multi-Developer Environment
+
+## CRITICAL FILE CONFLICT PREVENTION RULES
+
+1. **ALWAYS check file modification time before editing: `ls -la [filename]`**
+2. **Add editing comment at top of file when you start working on it**
+3. **Remove editing comment and save frequently to avoid conflicts**
+4. **Check GPU availability with `nvidia-smi` before CUDA operations**
+5. **Monitor system resources with `htop` - don't monopolize CPU/GPU**
+6. **Kill your processes when switching tasks: `pkill -f [process_name]`**
+7. **Clean up temporary files in `/tmp/` after working**
+8. **Save and commit small changes frequently**
+9. **Don't leave files open in editors when not actively editing**
+10. **Coordinate verbally when working on the same critical files**
+
+## PROJECT CONTEXT
+<project_context>
+You are developing the NASA Space Apps Challenge 2025 "Meteor Madness" asteroid impact visualization and simulation tool. This includes:
+- CUDA-accelerated physics simulations for asteroid impacts
+- NASA NEO API integration for real-time data
+- Three.js 3D visualization of Earth and asteroids
+- FastAPI backend with physics calculations
+- React frontend with Material-UI components
+- Scientific accuracy is CRITICAL - validate all calculations
+</project_context>
+
+## TECHNOLOGY STACK SPECIFICATIONS
+
+<backend>
+- **Framework**: FastAPI with Python 3.10+
+- **GPU Computing**: CUDA with CuPy and Numba
+- **APIs**: NASA NEO API, USGS geological data
+- **Database**: PostgreSQL with async connections
+- **Physics**: Real crater scaling laws and orbital mechanics
+- **Testing**: pytest with >80% coverage requirement
+</backend>
+
+<frontend>
+- **Framework**: React 18 with TypeScript
+- **3D Graphics**: Three.js with WebGL optimization
+- **UI Library**: Material-UI with dark theme
+- **State Management**: React hooks and context
+- **Build Tool**: Vite with code splitting
+- **Testing**: Jest with React Testing Library
+</frontend>
+
+<development_environment>
+- **OS**: Ubuntu Linux on shared VM
+- **GPU**: CUDA-compatible GPU (shared resource)
+- **Memory**: Monitor usage - multiple developers working simultaneously
+- **Storage**: Use project directories, clean up temporary files
+- **Networking**: Shared bandwidth for NASA API calls
+</development_environment>
+
+## CODING STANDARDS
+
+<python_standards>
+1. Use type hints for all function parameters and returns
+2. Follow PEP 8 with max line length of 100 characters
+3. Use async/await for all API endpoints and I/O operations
+4. Implement comprehensive error handling with proper logging
+5. Add docstrings to all public functions with example usage
+6. Use Pydantic models for data validation
+7. Test CUDA availability before GPU operations
+8. Implement CPU fallbacks for all CUDA functions
+9. Cache API responses to avoid NASA rate limits
+10. Use environment variables for all secrets and configuration
+</python_standards>
+
+<react_typescript_standards>
+1. Use TypeScript strict mode with explicit type annotations
+2. Prefer functional components with React hooks
+3. Use React.memo for performance-critical components
+4. Implement proper error boundaries for all major features
+5. Use semantic HTML and ARIA attributes for accessibility
+6. Follow Material-UI theme system consistently
+7. Optimize Three.js performance with LOD and culling
+8. Use suspense and lazy loading for code splitting
+9. Add PropTypes or TypeScript interfaces for all props
+10. Test components with proper mocking of 3D contexts
+</react_typescript_standards>
+
+<cuda_development>
+1. Always check CUDA device availability before kernel launches
+2. Use proper memory management to prevent GPU memory leaks
+3. Implement grid/block sizing based on device capabilities
+4. Add comprehensive error checking after CUDA operations
+5. Use CuPy for array operations, Numba for custom kernels
+6. Include performance profiling comments
+7. Test with small datasets before scaling to production size
+8. Implement proper synchronization between CPU and GPU
+9. Use shared memory optimization when appropriate
+10. Provide CPU fallback implementations for all GPU functions
+</cuda_development>
+
+## FILE EDITING PROTOCOL
+
+<file_management>
+# Before editing any file:
+stat [filename]                    # Check last modification time
+ls -la [filename]                  # Check file details
+
+# When starting to edit, add comment at top:
+# EDITING: [Your Name] at [Time] - [Brief description of what you're doing]
+# Example:
+# EDITING: Alice at 2:30 PM - Adding crater scaling calculations
+
+# When done editing:
+# 1. Remove the editing comment
+# 2. Save the file immediately
+# 3. Commit if it's a logical checkpoint
+
+# For critical shared files (config, main.py, App.tsx):
+# - Check if someone else is editing before you start
+# - Coordinate verbally if multiple people need the same file
+</file_management>
+
+<resource_management>
+1. **GPU Usage**: Check availability before intensive operations
+2. **Memory**: Monitor RAM usage, clean up large objects
+3. **Processes**: Kill background processes when switching tasks
+4. **Temporary Files**: Use unique temp file names, clean up after use
+5. **API Quotas**: Share NASA API key usage responsibly
+6. **Database**: Close connections properly, use connection pooling
+7. **Build Processes**: Don't run multiple builds simultaneously
+</resource_management>
+
+## SCIENTIFIC ACCURACY REQUIREMENTS
+
+<physics_validation>
+1. Reference peer-reviewed papers for all scaling laws and formulas
+2. Validate calculations against known impact events (Tunguska, Chelyabinsk)
+3. Use proper SI units throughout and document conversions
+4. Implement bounds checking for all physical parameters
+5. Include uncertainty estimates where applicable
+6. Cross-reference with published asteroid databases
+7. Add comments explaining physical assumptions
+8. Test edge cases (very small/large asteroids)
+9. Implement conservation law checks where relevant
+10. Document sources for all empirical constants
+</physics_validation>
+
+<data_quality>
+1. Validate NASA API data before processing
+2. Implement data quality flags and warnings
+3. Handle missing or invalid data gracefully
+4. Use appropriate significant figures for scientific data
+5. Implement unit testing with known scientific results
+6. Add data visualization for verification
+7. Log data quality issues for debugging
+8. Implement data freshness checks
+9. Validate against multiple data sources when possible
+10. Include metadata about data sources and processing
+</data_quality>
+
+## PERFORMANCE OPTIMIZATION
+
+<gpu_optimization>
+1. Use memory pooling to avoid frequent GPU allocations
+2. Implement batching for multiple asteroid calculations
+3. Use appropriate precision (float32 vs float64) based on needs
+4. Optimize kernel launch parameters for hardware
+5. Use streams for overlapping computation and memory transfers
+6. Profile GPU operations and optimize bottlenecks
+7. Implement proper memory coalescing patterns
+8. Use shared memory for frequently accessed data
+9. Avoid unnecessary GPU-CPU data transfers
+10. Monitor GPU utilization and memory usage
+</gpu_optimization>
+
+<web_performance>
+1. Implement Three.js object pooling for asteroids
+2. Use LOD (Level of Detail) for distant objects
+3. Implement frustum and occlusion culling
+4. Optimize texture sizes and formats
+5. Use Web Workers for heavy computations
+6. Implement progressive loading for large datasets
+7. Use efficient rendering techniques (instancing, batching)
+8. Optimize shader performance
+9. Implement proper garbage collection for 3D objects
+10. Monitor frame rates and optimize for 60fps target
+</web_performance>
+
+## ERROR HANDLING PATTERNS
+
+<error_handling>
+1. Use specific exception types for different error categories
+2. Implement proper logging with context information
+3. Provide user-friendly error messages
+4. Include recovery suggestions in error responses
+5. Log stack traces for debugging but not in user messages
+6. Implement circuit breakers for external API calls
+7. Use proper HTTP status codes for API responses
+8. Implement retry logic with exponential backoff
+9. Validate inputs at API boundaries
+10. Handle GPU errors with CPU fallbacks
+</error_handling>
+
+## TESTING STRATEGY
+
+<testing_requirements>
+1. **Unit Tests**: All physics functions with known expected results
+2. **Integration Tests**: Full API endpoints with mocked external services
+3. **GPU Tests**: CUDA kernels with small test datasets
+4. **API Tests**: NASA integration with cached responses
+5. **Frontend Tests**: React components with mocked 3D contexts
+6. **Performance Tests**: Load testing with large asteroid datasets
+7. **Cross-browser Tests**: Chrome, Firefox, Safari compatibility
+8. **Accessibility Tests**: Screen reader and keyboard navigation
+9. **Security Tests**: Input validation and API authentication
+10. **Regression Tests**: Known impact scenarios (Tunguska, Chelyabinsk)
+</testing_requirements>
+
+## DOCUMENTATION STANDARDS
+
+<documentation>
+1. **API Documentation**: OpenAPI/Swagger for all endpoints
+2. **Code Documentation**: Docstrings for all public functions
+3. **Scientific References**: Citations for all formulas and constants
+4. **Setup Instructions**: Detailed environment setup guide
+5. **Architecture Docs**: System design and data flow diagrams
+6. **Performance Docs**: Optimization guidelines and benchmarks
+7. **Troubleshooting**: Common issues and solutions
+8. **Changelog**: Track significant changes and versions
+</documentation>
+
+## SECURITY CONSIDERATIONS
+
+<security>
+1. Never commit API keys or sensitive configuration
+2. Use environment variables for all secrets
+3. Validate and sanitize all user inputs
+4. Implement proper CORS settings for API endpoints
+5. Use HTTPS for all external communications
+6. Implement rate limiting to prevent abuse
+7. Log security events for monitoring
+8. Use secure random number generation where needed
+9. Implement proper session management
+10. Regular security audits of dependencies
+</security>
+
+## DEPLOYMENT CONFIGURATION
+
+<deployment>
+1. **Environment Separation**: Dev, staging, prod configurations
+2. **Docker Containers**: Consistent environments across deployment
+3. **CUDA Runtime**: Ensure GPU support in production containers
+4. **Monitoring**: Application and system metrics collection
+5. **Logging**: Centralized log collection and analysis
+6. **Backup Strategy**: Regular backups of critical data
+7. **Health Checks**: API and service health monitoring endpoints
+8. **Scaling**: Horizontal scaling for API services
+9. **CDN**: Static asset delivery optimization
+10. **Security**: SSL/TLS configuration and security headers
+</deployment>
+
+## COMMON COMMANDS FOR COORDINATION
+
+<helpful_commands>
+# Check who's using what
+ps aux | grep python              # See Python processes
+ps aux | grep node               # See Node processes
+lsof [filename]                  # See who has file open
+
+# System monitoring
+htop                             # CPU/RAM usage
+nvidia-smi                       # GPU usage
+df -h                           # Disk usage
+
+# File coordination
+stat [filename]                  # File modification time
+ls -la [filename]               # File details
+tail -f [logfile]               # Monitor logs
+
+# Process management
+pkill -f [process_name]          # Kill specific processes
+killall python                  # Kill all Python processes (careful!)
+jobs                            # See background jobs
+</helpful_commands>
+
+---
+
+**Remember: You're all working on the same user account. Check file modification times before editing, add editing comments when working on files, and coordinate on critical shared files to avoid conflicts!**
