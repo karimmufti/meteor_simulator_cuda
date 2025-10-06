@@ -448,7 +448,7 @@ Users must comply with attribution requirements for GEBCO and WorldPop when publ
 
 **NASA Space Apps Challenge 2025**
 
-- Zayd Alzein, Zaid Khayyat, Khalid Mufti, Kareem Muftee
+- Kareem Muftee, Zayd Alzein, Zaid Khayyat, Khalid Mufti
 - Challenge: Meteor Madness
 
 ---
