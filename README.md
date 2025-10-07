@@ -15,6 +15,12 @@ A high-fidelity asteroid impact assessment system delivering near-real-time haza
 
 The Meteor Madness Simulator provides end-to-end asteroid impact assessment from orbital ingestion through atmospheric entry to surface impact and multi-hazard analysis. The system combines peer-reviewed physics models, authoritative datasets, and GPU acceleration to enable interactive what-if scenario analysis.
 
+## Preview
+
+<img width="1506" height="858" alt="NASA_meteor" src="https://github.com/user-attachments/assets/3f6c30bc-18e7-4007-9642-6846c7ceea7a" />
+
+
+
 ### Core Capabilities
 
 **Physics & Computation**
@@ -507,6 +513,6 @@ Contributions implementing these features are welcome. See Contributing section 
 **Meteor Madness Simulator**  
 *High-Fidelity Asteroid Impact Assessment for NASA Space Apps Challenge 2025*
 
-Repository: https://github.com/Zaydo123/meteor-madness-simulator  
+Repository: https://github.com/karimmufti/meteor_simulator_cuda
 Documentation: [DATA_SETUP.md](DATA_SETUP.md) | [LICENSE](LICENSE)  
-Contact: [Your Team] - NASA Space Apps Challenge 2025
+
