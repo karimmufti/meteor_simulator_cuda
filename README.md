@@ -4,7 +4,6 @@
 
 A high-fidelity asteroid impact assessment system delivering near-real-time hazard analysis through GPU-accelerated physics modeling, official NASA/USGS data integration, and immersive 3D visualization.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 ![CUDA](https://img.shields.io/badge/CUDA-12.2-green.svg)
 ![React](https://img.shields.io/badge/react-18-61dafb.svg)
